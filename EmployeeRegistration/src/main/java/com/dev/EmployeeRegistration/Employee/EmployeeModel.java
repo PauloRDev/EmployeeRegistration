@@ -1,6 +1,9 @@
 package com.dev.EmployeeRegistration.Employee;
 
+import com.dev.EmployeeRegistration.Project.ProjectModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "tb_register")
@@ -14,7 +17,7 @@ public class EmployeeModel {
   private Integer age;
   private String email;
   private String position;
-
+  private List<ProjectModel> project;
 
   public EmployeeModel() {
   }
