@@ -3,6 +3,8 @@ package com.dev.EmployeeRegistration.Project;
 import com.dev.EmployeeRegistration.Employee.EmployeeModel;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "tb_project")
 public class ProjectModel {
@@ -14,7 +16,9 @@ public class ProjectModel {
   private String projectName;
   private String task;
   private String projectLevel;
-  private EmployeeModel employee;
+
+  @OneToMany(mappedBy = "project")
+  private List<EmployeeModel> employee;
 
 
   public ProjectModel() {
