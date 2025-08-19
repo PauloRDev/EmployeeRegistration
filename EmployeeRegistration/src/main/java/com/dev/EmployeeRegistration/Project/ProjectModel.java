@@ -2,8 +2,15 @@ package com.dev.EmployeeRegistration.Project;
 
 import com.dev.EmployeeRegistration.Employee.EmployeeModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 
 @Entity
 @Table(name = "tb_project")
@@ -19,40 +26,4 @@ public class ProjectModel {
 
   @OneToMany(mappedBy = "project")
   private List<EmployeeModel> employee;
-
-
-  public ProjectModel() {
-  }
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
-  public String getTask() {
-    return task;
-  }
-
-  public void setTask(String task) {
-    this.task = task;
-  }
-
-  public String getProjectLevel() {
-    return projectLevel;
-  }
-
-  public void setProjectLevel(String projectLevel) {
-    this.projectLevel = projectLevel;
-  }
 }
