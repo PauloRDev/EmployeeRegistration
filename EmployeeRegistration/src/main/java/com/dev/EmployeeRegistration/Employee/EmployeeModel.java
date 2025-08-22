@@ -19,8 +19,12 @@ public class EmployeeModel {
   private Long id;
 
   private String name;
+
   private Integer age;
+
+  @Column(unique = true)
   private String email;
+
   private String position;
 
   @ManyToOne
