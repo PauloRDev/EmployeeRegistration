@@ -18,13 +18,16 @@ public class EmployeeModel {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
+  @Column(name = "name")
   private String name;
 
+  @Column(name = "age")
   private Integer age;
 
   @Column(unique = true)
   private String email;
 
+  @Column(name = "position")
   private String position;
 
   @ManyToOne
