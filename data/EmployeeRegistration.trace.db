@@ -1,0 +1,5 @@
+2025-09-01 11:21:03.276343-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]jdbc:h2:file:./data/EmployeeRegistration\000d\000auser: sa\000d\000apassword: (vazio)"; SQL statement:
+jdbc:h2:file:./data/EmployeeRegistration
+user: sa
+password: (vazio) [42000-232]
