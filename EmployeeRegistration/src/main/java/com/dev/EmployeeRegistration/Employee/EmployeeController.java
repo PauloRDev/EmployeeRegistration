@@ -1,8 +1,6 @@
 package com.dev.EmployeeRegistration.Employee;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping
@@ -12,4 +10,31 @@ public class EmployeeController {
   public String welcome() {
     return "My first route";
   }
+
+  @PostMapping("/create")
+  public String createEmployee() {
+    return "Employee created";
+  }
+
+  @GetMapping("/all")
+    public String showAllEmployee() {
+      return "all Employee";
+    }
+
+  @GetMapping("/employeeID")
+  public String showEmployeeByID() {
+    return "Employee by ID";
+  }
+
+  @PutMapping("changeID")
+  public String changeEmployeeByID() {
+    return "Change employee data by ID";
+  }
+
+  @DeleteMapping("deleteID")
+  public String deleteEmployeeByID() {
+    return "Deleted employee by ID";
+  }
+
+
 }
