@@ -3,7 +3,7 @@ package com.dev.EmployeeRegistration.Employee;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/employee")
 public class EmployeeController {
 
   @GetMapping("/welcome")
@@ -26,15 +26,13 @@ public class EmployeeController {
     return "Employee by ID";
   }
 
-  @PutMapping("changeID")
-  public String changeEmployeeByID() {
+  @PutMapping("/updateID")
+  public String updateEmployeeByID() {
     return "Change employee data by ID";
   }
 
-  @DeleteMapping("deleteID")
+  @DeleteMapping("/deleteID")
   public String deleteEmployeeByID() {
     return "Deleted employee by ID";
   }
-
-
 }
