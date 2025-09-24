@@ -1,6 +1,7 @@
 package com.dev.EmployeeRegistration.Project;
 
 import com.dev.EmployeeRegistration.Employee.EmployeeModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,5 +26,6 @@ public class ProjectModel {
   private String projectLevel;
 
   @OneToMany(mappedBy = "project")
+  @JsonIgnore
   private List<EmployeeModel> employee;
 }
