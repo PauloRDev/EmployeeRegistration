@@ -2,9 +2,17 @@ package com.dev.EmployeeRegistration.Employee;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
+
+  private EmployeeService employeeService;
+
+  public EmployeeController(EmployeeService employeeService) {
+    this.employeeService = employeeService;
+  }
 
   @GetMapping("/welcome")
   public String welcome() {
@@ -17,8 +25,8 @@ public class EmployeeController {
   }
 
   @GetMapping("/all")
-    public String showAllEmployee() {
-      return "all Employee";
+    public List<EmployeeModel> listEmployee() {
+      return employeeService.listEmployee();
     }
 
   @GetMapping("/employeeID")
