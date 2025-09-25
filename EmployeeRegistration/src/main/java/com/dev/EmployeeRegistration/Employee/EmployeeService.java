@@ -3,6 +3,7 @@ package com.dev.EmployeeRegistration.Employee;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeService {
@@ -17,4 +18,12 @@ public class EmployeeService {
   public List<EmployeeModel> listEmployee() {
     return employeeRepository.findAll();
   }
+
+  // list all employee by ID
+  public EmployeeModel listEmployeeByID(Long id) {
+    Optional<EmployeeModel> employeeByID = employeeRepository.findById(id);
+
+    return employeeByID.orElse(null);
+  }
+
 }
