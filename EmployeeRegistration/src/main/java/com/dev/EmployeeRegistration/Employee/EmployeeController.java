@@ -29,9 +29,9 @@ public class EmployeeController {
       return employeeService.listEmployee();
     }
 
-  @GetMapping("/employeeID")
-  public String showEmployeeByID() {
-    return "Employee by ID";
+  @GetMapping("/employee/{id}")
+  public EmployeeModel listEmployeeByID(@PathVariable Long id) {
+    return employeeService.listEmployeeByID(id);
   }
 
   @PutMapping("/updateID")
