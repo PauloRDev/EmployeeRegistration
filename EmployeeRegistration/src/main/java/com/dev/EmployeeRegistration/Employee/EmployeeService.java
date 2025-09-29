@@ -26,4 +26,8 @@ public class EmployeeService {
     return employeeByID.orElse(null);
   }
 
+  // create new employee
+  public EmployeeModel createEmployee(EmployeeModel employee) {
+    return employeeRepository.save(employee);
+  }
 }

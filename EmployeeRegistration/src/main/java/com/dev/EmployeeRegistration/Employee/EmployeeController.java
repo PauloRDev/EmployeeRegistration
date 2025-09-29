@@ -20,8 +20,8 @@ public class EmployeeController {
   }
 
   @PostMapping("/create")
-  public String createEmployee() {
-    return "Employee created";
+  public EmployeeModel createEmployee(@RequestBody EmployeeModel employee) {
+    return employeeService.createEmployee(employee);
   }
 
   @GetMapping("/all")
