@@ -16,12 +16,6 @@ public class EmployeeController {
     this.employeeService = employeeService;
   }
 
-  @GetMapping("/welcome")
-  public String welcome() {
-    return "This is my first message in this route";
-  }
-
-
   @PostMapping("/create")
   public ResponseEntity<String> createEmployee(@RequestBody EmployeeDTO employee) {
     EmployeeDTO newEmployee = employeeService.createEmployee(employee);
