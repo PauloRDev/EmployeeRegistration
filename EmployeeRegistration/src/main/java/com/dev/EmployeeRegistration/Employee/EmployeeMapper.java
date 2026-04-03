@@ -1,9 +1,16 @@
 package com.dev.EmployeeRegistration.Employee;
 
+import com.dev.EmployeeRegistration.Project.ProjectDTO;
+import com.dev.EmployeeRegistration.Project.ProjectModel;
+import com.dev.EmployeeRegistration.Project.ProjectRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class EmployeeMapper {
+
+  @Autowired
+  private ProjectRepository projectRepository;
 
   public EmployeeModel map(EmployeeDTO employeeDTO) {
     EmployeeModel employeeModel = new EmployeeModel();
@@ -13,6 +20,13 @@ public class EmployeeMapper {
     employeeModel.setEmail(employeeDTO.getEmail());
     employeeModel.setAge(employeeDTO.getAge());
     employeeModel.setPosition(employeeDTO.getPosition());
+
+
+    if (employeeDTO.getProject() != null && employeeDTO.getProject().getId() != null) {
+      ProjectModel project = projectRepository.findById(employeeDTO.getProject().getId())
+              .orElse(null);
+      employeeModel.setProject(project);
+    }
 
     return employeeModel;
   }
@@ -26,6 +40,14 @@ public class EmployeeMapper {
     employeeDTO.setAge(employeeModel.getAge());
     employeeDTO.setPosition(employeeModel.getPosition());
 
+    if (employeeModel.getProject() != null) {
+      ProjectDTO projectDTO = new ProjectDTO();
+      projectDTO.setId(employeeModel.getProject().getId());
+      projectDTO.setProjectName(employeeModel.getProject().getProjectName());
+      projectDTO.setTask(employeeModel.getProject().getTask());
+      projectDTO.setProjectLevel(employeeModel.getProject().getProjectLevel());
+      employeeDTO.setProject(projectDTO);
+    }
     return employeeDTO;
   }
 }
