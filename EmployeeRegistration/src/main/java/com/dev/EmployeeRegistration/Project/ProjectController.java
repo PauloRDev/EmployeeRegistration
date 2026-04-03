@@ -1,4 +1,4 @@
-package com.dev.EmployeeRegistration.Project;
+package com.dev.EmployeeRegistration.projectt;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

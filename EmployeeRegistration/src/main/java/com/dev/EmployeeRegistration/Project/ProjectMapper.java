@@ -1,4 +1,4 @@
-package com.dev.EmployeeRegistration.Project;
+package com.dev.EmployeeRegistration.projectt;
 
 import org.springframework.stereotype.Component;
 

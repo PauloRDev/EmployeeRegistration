@@ -1,9 +1,5 @@
-package com.dev.EmployeeRegistration.Project;
+package com.dev.EmployeeRegistration.projectt;
 
-
-import com.dev.EmployeeRegistration.Project.ProjectDTO;
-import com.dev.EmployeeRegistration.Project.ProjectMapper;
-import com.dev.EmployeeRegistration.Project.ProjectRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,8 +9,8 @@ import java.util.stream.Collectors;
 @Service
 public class ProjectService {
 
-  private final ProjectRepository projectRepository;
-  private final ProjectMapper projectMapper;
+  private ProjectRepository projectRepository;
+  private ProjectMapper projectMapper;
 
   public ProjectService(ProjectRepository projectRepository, ProjectMapper projectMapper) {
     this.projectRepository = projectRepository;

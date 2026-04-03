@@ -1,5 +1,6 @@
 package com.dev.EmployeeRegistration.Employee;
 
+import com.dev.EmployeeRegistration.Project.ProjectDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,5 +15,5 @@ public class EmployeeDTO {
   private Integer age;
   private String position;
 
-  private EmployeeModel employee;
+  private ProjectDTO project;
 }

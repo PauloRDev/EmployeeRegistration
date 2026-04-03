@@ -1,4 +1,4 @@
-package com.dev.EmployeeRegistration.Project;
+package com.dev.EmployeeRegistration.projectt;
 
 import com.dev.EmployeeRegistration.Employee.EmployeeModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -9,20 +9,25 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
-
 @Entity
 @Table(name = "tb_project")
+@NoArgsConstructor
+@Data
+@AllArgsConstructor
 public class ProjectModel {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id")
   private Long id;
 
+  @Column(name = "projectName")
   private String projectName;
+
+  @Column(name = "task")
   private String task;
+
+  @Column(name = "projectLevel")
   private String projectLevel;
 
   @OneToMany(mappedBy = "project")
