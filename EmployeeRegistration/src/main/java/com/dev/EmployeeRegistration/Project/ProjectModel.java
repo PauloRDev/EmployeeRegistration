@@ -1,4 +1,4 @@
-package com.dev.EmployeeRegistration.projectt;
+package com.dev.EmployeeRegistration.Project;
 
 import com.dev.EmployeeRegistration.Employee.EmployeeModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
