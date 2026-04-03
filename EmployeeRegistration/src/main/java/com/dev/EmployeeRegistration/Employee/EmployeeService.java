@@ -1,5 +1,7 @@
 package com.dev.EmployeeRegistration.Employee;
 
+import com.dev.EmployeeRegistration.Project.ProjectModel;
+import com.dev.EmployeeRegistration.Project.ProjectRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,12 +11,14 @@ import java.util.stream.Collectors;
 @Service
 public class EmployeeService {
 
-  private final EmployeeRepository employeeRepository;
-  private final EmployeeMapper employeeMapper;
+  private EmployeeRepository employeeRepository;
+  private ProjectRepository projectRepository;
+  private EmployeeMapper employeeMapper;
 
-  public EmployeeService(EmployeeMapper employeeMapper, EmployeeRepository employeeRepository) {
+  public EmployeeService(EmployeeMapper employeeMapper, EmployeeRepository employeeRepository, ProjectRepository projectRepository) {
     this.employeeMapper = employeeMapper;
     this.employeeRepository = employeeRepository;
+    this.projectRepository = projectRepository;
   }
 
   // list all employees
@@ -46,14 +50,27 @@ public class EmployeeService {
   // Update employee
   public EmployeeDTO updateEmployeeByID(Long id, EmployeeDTO employeeDTO) {
     Optional<EmployeeModel> existsEmployee = employeeRepository.findById(id);
-    if (existsEmployee.isPresent()) {
-      EmployeeModel attEmployee = employeeMapper.map(employeeDTO);
-      attEmployee.setId(id);
-      EmployeeModel savedEmployee = employeeRepository.save(attEmployee);
 
+    if (existsEmployee.isPresent()) {
+      EmployeeModel attEmployee = existsEmployee.get();
+
+      attEmployee.setName(employeeDTO.getName());
+      attEmployee.setEmail(employeeDTO.getEmail());
+      attEmployee.setAge(employeeDTO.getAge());
+      attEmployee.setPosition(employeeDTO.getPosition());
+
+      if (employeeDTO.getProject() != null) {
+        ProjectModel project = projectRepository.findById(employeeDTO.getProject().getId())
+                .orElse(null);
+        attEmployee.setProject(project);
+      }
+
+      EmployeeModel savedEmployee = employeeRepository.save(attEmployee);
       return employeeMapper.map(savedEmployee);
     }
+
     return null;
   }
+
 
 }
