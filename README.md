@@ -10,6 +10,7 @@ A RESTful API for employee and project management, built with **Java** and **Spr
 - [Technologies](#technologies)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
+- [API Documentation](#api-documentation)
 - [API Endpoints](#api-endpoints)
 - [Request & Response Examples](#request--response-examples)
 
@@ -31,6 +32,8 @@ Employee Registration is a REST API that allows you to manage employees and proj
 - PostgreSQL (or H2 for development)
 - Maven
 - Postman
+- SpringDoc OpenAPI (Swagger)
+
 ---
 
 ## Project Structure
@@ -83,6 +86,12 @@ The API will be available at `http://localhost:8080`.
 
 ---
 
+## 📄 API Documentation
+
+API documentation is available via Swagger UI at `http://localhost:8080/swagger-ui/index.html` after running the application.
+
+---
+
 ## API Endpoints
 
 ### 🗂️ Project
@@ -100,8 +109,8 @@ The API will be available at `http://localhost:8080`.
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | POST | `/employee/create` | Create a new employee |
-| GET | `/employee/list` | List all employees |
-| GET | `/employee/list/{id}` | Get employee by ID |
+| GET | `/employee/employees` | List all employees |
+| GET | `/employee/employees/{id}` | Get employee by ID |
 | PUT | `/employee/update/{id}` | Update employee by ID |
 | DELETE | `/employee/delete/{id}` | Delete employee by ID |
 
