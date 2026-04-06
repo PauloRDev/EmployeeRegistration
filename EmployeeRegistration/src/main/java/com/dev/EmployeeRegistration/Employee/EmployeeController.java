@@ -96,8 +96,7 @@ public class EmployeeController {
   public ResponseEntity<String> deleteEmployeesByID(
     @Parameter(description = "ID of the employee to be deleted")
     @PathVariable Long id) {
-    if (employeeService.listAllEmployeesByID(id) != null) {
-      employeeService.deleteEmployeeByID(id);
+    if (employeeService.deleteEmployeeByID(id)) {
 
       return ResponseEntity.ok("Employee by ID " + id + " Successfully deleted");
 
