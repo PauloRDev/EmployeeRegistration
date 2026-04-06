@@ -10,6 +10,7 @@ A RESTful API for employee and project management, built with **Java** and **Spr
 - [Technologies](#technologies)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
+- [API Documentation](#api-documentation)
 - [API Endpoints](#api-endpoints)
 - [Request & Response Examples](#request--response-examples)
 
@@ -31,6 +32,8 @@ Employee Registration is a REST API that allows you to manage employees and proj
 - PostgreSQL (or H2 for development)
 - Maven
 - Postman
+- SpringDoc OpenAPI (Swagger)
+
 ---
 
 ## Project Structure
@@ -83,27 +86,33 @@ The API will be available at `http://localhost:8080`.
 
 ---
 
+## 📄 API Documentation
+
+API documentation is available via Swagger UI at `http://localhost:8080/swagger-ui/index.html` after running the application.
+
+---
+
 ## API Endpoints
 
 ### 🗂️ Project
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| POST | `/project/create` | Create a new project |
-| GET | `/project/list` | List all projects |
-| GET | `/project/list/{id}` | Get project by ID |
-| PUT | `/project/update/{id}` | Update project by ID |
-| DELETE | `/project/delete/{id}` | Delete project by ID |
+| POST | `/projects` | Create a new project |
+| GET | `/projects` | List all projects |
+| GET | `/projects/{id}` | Get project by ID |
+| PUT | `/projects/{id}` | Update project by ID |
+| DELETE | `/projects/{id}` | Delete project by ID |
 
 ### 👤 Employee
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| POST | `/employee/create` | Create a new employee |
-| GET | `/employee/list` | List all employees |
-| GET | `/employee/list/{id}` | Get employee by ID |
-| PUT | `/employee/update/{id}` | Update employee by ID |
-| DELETE | `/employee/delete/{id}` | Delete employee by ID |
+| POST | `/employees` | Create a new employee |
+| GET | `/employees` | List all employees |
+| GET | `/employees/{id}` | Get employee by ID |
+| PUT | `/employees/{id}` | Update employee by ID |
+| DELETE | `/employees/{id}` | Delete employee by ID |
 
 ---
 
@@ -111,7 +120,7 @@ The API will be available at `http://localhost:8080`.
 
 ### Create a Project
 
-**POST** `/project/create`
+**POST** `/projects`
 
 ```json
 {
@@ -132,7 +141,7 @@ Project successfully created Authentication Service (ID) 1
 
 > ⚠️ Create the project first, then assign it to the employee using the project ID.
 
-**POST** `/employee/create`
+**POST** `/employees`
 
 ```json
 {
@@ -153,7 +162,7 @@ Employee successfully created John Doe (ID): 1
 
 ### Get All Employees
 
-**GET** `/employee/list`
+**GET** `/employees`
 
 ```json
 [
@@ -177,7 +186,7 @@ Employee successfully created John Doe (ID): 1
 
 ### Update an Employee
 
-**PUT** `/employee/update/1`
+**PUT** `/employees/1`
 
 ```json
 {
@@ -193,7 +202,7 @@ Employee successfully created John Doe (ID): 1
 
 ### Delete an Employee
 
-**DELETE** `/employee/delete/1`
+**DELETE** `/employees/1`
 
 ```
 Employee by ID 1 Successfully deleted
