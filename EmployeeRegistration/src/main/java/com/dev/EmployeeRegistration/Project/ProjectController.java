@@ -1,5 +1,9 @@
 package com.dev.EmployeeRegistration.Project;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -7,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/project")
+@RequestMapping("/projects")
 public class ProjectController {
 
   private final ProjectService projectService;
@@ -16,8 +20,14 @@ public class ProjectController {
     this.projectService = projectService;
   }
 
-  // CREATE
-  @PostMapping("/create")
+  @PostMapping
+  @Operation(summary = "Create a new project", description = "Registers a new project in the system.")
+
+  @ApiResponses(value = {
+          @ApiResponse(responseCode = "201", description = "Project created successfully"),
+          @ApiResponse(responseCode = "400", description = "Error when creating project")
+  })
+
   public ResponseEntity<String> createProject(@RequestBody ProjectDTO project) {
     ProjectDTO newProject = projectService.createProject(project);
     return ResponseEntity.status(HttpStatus.CREATED)
@@ -25,14 +35,25 @@ public class ProjectController {
   }
 
   // GET
-  @GetMapping("/list")
+  @GetMapping
+  @Operation(summary = "Get all projects", description = "Returns a list of all registered projects. Returns an empty list if none exist.")
+  @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Projects list returned successfully") })
   public ResponseEntity<List<ProjectDTO>> listProject() {
     List<ProjectDTO> project = projectService.listProject();
     return ResponseEntity.ok(project);
   }
 
-  @GetMapping("list/{id}")
-  public ResponseEntity<?> listAllProjectByID(@PathVariable Long id) {
+  @GetMapping("/{id}")
+  @Operation(summary = "Get project by ID", description = "Returns a specific project's data by their unique identifier.")
+
+  @ApiResponses(value = {
+          @ApiResponse(responseCode = "200", description = "Project successfully found"),
+          @ApiResponse(responseCode = "404", description = "Project not found")
+  })
+
+  public ResponseEntity<?> listAllProjectByID(
+    @Parameter(description = "ID of the project to be returns")
+    @PathVariable Long id) {
     ProjectDTO project = projectService.listAllProject(id);
 
     if (project != null) {
@@ -44,8 +65,19 @@ public class ProjectController {
   }
 
   // PUT
-  @PutMapping("/update/{id}")
-  public ResponseEntity<?> updateProject(@PathVariable Long id, @RequestBody ProjectDTO updateProject) {
+  @PutMapping("/{id}")
+  @Operation(summary = "Update project by ID", description = "Update a specific project's data by their unique identifier.")
+
+  @ApiResponses(value = {
+          @ApiResponse(responseCode = "200", description = "Project successfully updated"),
+          @ApiResponse(responseCode = "404", description = "Project not found, update not possible")
+  })
+
+  public ResponseEntity<?> updateProject(
+    @Parameter(description = "The user sends the ID in the request path.")
+    @PathVariable Long id,
+    @Parameter(description = "The user sends the project's data to be updated in the body of the request.")
+    @RequestBody ProjectDTO updateProject) {
     ProjectDTO project = projectService.updateProjectByID(id, updateProject);
 
     if (project != null) {
@@ -57,10 +89,18 @@ public class ProjectController {
   }
 
   // DELETE
-  @DeleteMapping("/delete/{id}")
-  public ResponseEntity<String> deleteProject(@PathVariable Long id) {
-    if (projectService.listAllProject(id) != null) {
-      projectService.deleteProjectByID(id);
+  @DeleteMapping("/{id}")
+  @Operation(summary = "Delete project by ID", description = "Deletes a specific project by their unique identifier.")
+  @ApiResponses(value = {
+          @ApiResponse(responseCode = "204", description = "Project successfully deleted"),
+          @ApiResponse(responseCode = "404", description = "Project not found")
+  })
+
+  public ResponseEntity<String> deleteProjectByID(
+
+    @Parameter(description = "ID of the project to be deleted")
+    @PathVariable Long id) {
+    if (projectService.deleteProjectByID(id)) {
       return ResponseEntity.ok("Project by ID " + id + " Successfully deleted");
     } else {
       return ResponseEntity.status(HttpStatus.NOT_FOUND)
