@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("/employees")
 public class EmployeeController {
 
   private final EmployeeService employeeService;
@@ -20,7 +20,7 @@ public class EmployeeController {
     this.employeeService = employeeService;
   }
 
-  @PostMapping("/create")
+  @PostMapping
   @Operation(summary = "Create a new employee", description = "Registers a new employee in the system. Returns the created employee data with the generated ID.")
 
   @ApiResponses(value = {
@@ -34,7 +34,7 @@ public class EmployeeController {
             .body("Employee successfully created " + newEmployee.getName() + " (ID): " + newEmployee.getId());
   }
 
-  @GetMapping("/employees")
+  @GetMapping
   @Operation(summary = "Get all employees", description = "Returns a list of all registered employees. Returns an empty list if none exist.")
   @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Employees list returned successfully") })
 
@@ -43,7 +43,7 @@ public class EmployeeController {
     return ResponseEntity.ok(employees);
   }
 
-  @GetMapping("/employees/{id}")
+  @GetMapping("/{id}")
   @Operation(summary = "Get employee by ID", description = "Returns a specific employee's data by their unique identifier.")
 
   @ApiResponses(value = {
@@ -64,7 +64,7 @@ public class EmployeeController {
     }
   }
 
-  @PutMapping("/update/{id}")
+  @PutMapping("/{id}")
   @Operation(summary = "Update employee by ID", description = "Update a specific employee's data by their unique identifier.")
 
   @ApiResponses(value = {
@@ -86,7 +86,7 @@ public class EmployeeController {
     }
   }
 
-  @DeleteMapping("/delete/{id}")
+  @DeleteMapping("/{id}")
   @Operation(summary = "Delete employee by ID", description = "Deletes a specific employee by their unique identifier.")
   @ApiResponses(value = {
           @ApiResponse(responseCode = "204", description = "Employee successfully deleted"),
