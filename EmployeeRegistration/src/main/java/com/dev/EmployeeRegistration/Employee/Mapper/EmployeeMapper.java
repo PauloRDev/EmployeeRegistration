@@ -1,8 +1,10 @@
-package com.dev.EmployeeRegistration.Employee;
+package com.dev.EmployeeRegistration.Employee.Mapper;
 
-import com.dev.EmployeeRegistration.Project.ProjectDTO;
-import com.dev.EmployeeRegistration.Project.ProjectModel;
-import com.dev.EmployeeRegistration.Project.ProjectRepository;
+import com.dev.EmployeeRegistration.Employee.DTO.EmployeeDTO;
+import com.dev.EmployeeRegistration.Employee.Model.EmployeeModel;
+import com.dev.EmployeeRegistration.Project.DTO.ProjectDTO;
+import com.dev.EmployeeRegistration.Project.Model.ProjectModel;
+import com.dev.EmployeeRegistration.Project.Repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

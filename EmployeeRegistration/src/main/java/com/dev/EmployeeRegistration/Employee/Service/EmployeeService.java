@@ -1,7 +1,11 @@
-package com.dev.EmployeeRegistration.Employee;
+package com.dev.EmployeeRegistration.Employee.Service;
 
-import com.dev.EmployeeRegistration.Project.ProjectModel;
-import com.dev.EmployeeRegistration.Project.ProjectRepository;
+import com.dev.EmployeeRegistration.Employee.DTO.EmployeeDTO;
+import com.dev.EmployeeRegistration.Employee.Mapper.EmployeeMapper;
+import com.dev.EmployeeRegistration.Employee.Model.EmployeeModel;
+import com.dev.EmployeeRegistration.Employee.Repository.EmployeeRepository;
+import com.dev.EmployeeRegistration.Project.Model.ProjectModel;
+import com.dev.EmployeeRegistration.Project.Repository.ProjectRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

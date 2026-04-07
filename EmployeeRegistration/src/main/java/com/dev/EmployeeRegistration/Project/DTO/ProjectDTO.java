@@ -1,4 +1,4 @@
-package com.dev.EmployeeRegistration.Project;
+package com.dev.EmployeeRegistration.Project.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

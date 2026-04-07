@@ -1,5 +1,7 @@
-package com.dev.EmployeeRegistration.Employee;
+package com.dev.EmployeeRegistration.Employee.Controller;
 
+import com.dev.EmployeeRegistration.Employee.DTO.EmployeeDTO;
+import com.dev.EmployeeRegistration.Employee.Service.EmployeeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

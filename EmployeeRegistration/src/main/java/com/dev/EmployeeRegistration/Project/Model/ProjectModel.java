@@ -1,6 +1,6 @@
-package com.dev.EmployeeRegistration.Project;
+package com.dev.EmployeeRegistration.Project.Model;
 
-import com.dev.EmployeeRegistration.Employee.EmployeeModel;
+import com.dev.EmployeeRegistration.Employee.Model.EmployeeModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,5 +1,7 @@
-package com.dev.EmployeeRegistration.Project;
+package com.dev.EmployeeRegistration.Project.Mapper;
 
+import com.dev.EmployeeRegistration.Project.DTO.ProjectDTO;
+import com.dev.EmployeeRegistration.Project.Model.ProjectModel;
 import org.springframework.stereotype.Component;
 
 @Component

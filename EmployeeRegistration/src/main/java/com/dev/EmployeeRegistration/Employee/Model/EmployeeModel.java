@@ -1,6 +1,6 @@
-package com.dev.EmployeeRegistration.Employee;
+package com.dev.EmployeeRegistration.Employee.Model;
 
-import com.dev.EmployeeRegistration.Project.ProjectModel;
+import com.dev.EmployeeRegistration.Project.Model.ProjectModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
