@@ -37,26 +37,37 @@ Employee Registration is a REST API that allows you to manage employees and proj
 ---
 
 ## Project Structure
-
 ```
 src/
 └── main/
     └── java/
         └── com/dev/EmployeeRegistration/
             ├── Employee/
-            │   ├── EmployeeController.java
-            │   ├── EmployeeService.java
-            │   ├── EmployeeRepository.java
-            │   ├── EmployeeModel.java
-            │   ├── EmployeeDTO.java
-            │   └── EmployeeMapper.java
+            │   ├── Controller/
+            │   │   └── EmployeeController.java
+            │   ├── Service/
+            │   │   └── EmployeeService.java
+            │   ├── Repository/
+            │   │   └── EmployeeRepository.java
+            │   ├── Model/
+            │   │   └── EmployeeModel.java
+            │   ├── DTO/
+            │   │   └── EmployeeDTO.java
+            │   └── Mapper/
+            │       └── EmployeeMapper.java
             └── Project/
-                ├── ProjectController.java
-                ├── ProjectService.java
-                ├── ProjectRepository.java
-                ├── ProjectModel.java
-                ├── ProjectDTO.java
-                └── ProjectMapper.java
+                ├── Controller/
+                │   └── ProjectController.java
+                ├── Service/
+                │   └── ProjectService.java
+                ├── Repository/
+                │   └── ProjectRepository.java
+                ├── Model/
+                │   └── ProjectModel.java
+                ├── DTO/
+                │   └── ProjectDTO.java
+                └── Mapper/
+                    └── ProjectMapper.java
 ```
 
 ---
